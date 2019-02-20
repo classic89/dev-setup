@@ -89,6 +89,7 @@ pip install scikit-learn
 pip install "ipython[all]"
 pip install bokeh
 pip install Flask
+pip install Django
 pip install sqlalchemy
 #pip install mysql-python  # Python 2 only, use mysqlclient instead
 pip install mysqlclient
