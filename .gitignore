@@ -1,6 +1,13 @@
 # IntelliJ IDEA IDE
 .idea
 
+# Visual Studio Code (VSCode)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Compiled Python files
 *.pyc
 

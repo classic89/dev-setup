@@ -89,6 +89,7 @@ brew install hashpump
 brew install hydra
 brew install john
 brew install knock
+brew install lastpass-cli --with-pinentry
 brew install netpbm
 brew install nmap
 brew install pngcheck
@@ -109,10 +110,13 @@ brew install git
 brew install git-lfs
 brew install git-flow
 brew install git-extras
+brew install gradle
 brew install hub
 brew install imagemagick --with-webp
+brew install jenv
 brew install lua
 brew install lynx
+brew install maven
 brew install p7zip
 brew install pigz
 brew install pv
@@ -126,6 +130,10 @@ brew install zopfli
 brew install pkg-config libffi
 brew install pandoc
 
+# Unit Testing
+brew install selenium-server-standalone
+brew install bats
+
 # Lxml and Libxslt
 brew install libxml2
 brew install libxslt
@@ -138,30 +146,39 @@ heroku update
 
 # Core casks
 brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="~/Applications" iterm2
+brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="~/Applications" java
 brew cask install --appdir="~/Applications" xquartz
 
 # Development tool casks
+brew cask install --appdir="/Applications" eclipse-jee
 brew cask install --appdir="/Applications" sublime-text
 brew cask install --appdir="/Applications" atom
 brew cask install --appdir="/Applications" virtualbox
 brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" macdown
+brew cask install --appdir="/Applications" visual-studio-code
+brew cask install --appdir="/Applications" datagrip
+brew cask install --appdir="/Applications" beyond-compare
+brew cask install --appdir="/Applications" gitkraken
 
 # Misc casks
+brew cask install --appdir="/Applications" keepassx
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" firefox
 brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" 1password
+brew cask install spectacle
+#brew cask install --appdir="/Applications" 1password
+#brew cask install --appdir="/Applications" lastpass #Deprecated
+
 brew cask install --appdir="/Applications" gimp
 #brew cask install --appdir="/Applications" inkscape
 
 #Remove comment to install LaTeX distribution MacTeX
-#brew cask install --appdir="/Applications" mactex
+brew cask install --appdir="/Applications" mactex
 
 # Install Docker, which requires virtualbox
 brew install docker
@@ -169,6 +186,13 @@ brew install boot2docker
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+# Install jenv
+brew tap caskroom/versions
+brew cask install java8
+brew cask install java7
+
+
 
 # Remove outdated versions from the cellar.
 brew cleanup

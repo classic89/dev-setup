@@ -16,7 +16,7 @@ function runDots() {
             echo "Syncing the dev-setup repo to your local machine."
             echo "------------------------------"
             echo ""
-            cd ~ && curl -#L https://github.com/donnemartin/dev-setup/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,LICENSE}
+            cd ~ && curl -#L https://github.com/classic89/dev-setup/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,LICENSE}
         fi
         if [ $ARG == "osxprep" ] || [ $ARG == "all" ]; then
             # Run the osxprep.sh Script
@@ -35,10 +35,16 @@ function runDots() {
             echo ""
             echo "------------------------------"
             echo "Installing Homebrew along with some common formulae and apps."
-            echo "This might awhile to complete, as some formulae need to be installed from source."
+            echo "This might take a while to complete, as some formulae need to be installed from source."
             echo "------------------------------"
             echo ""
             ./brew.sh
+            echo ‘"# Java"’ >> ~/.bash_profile
+            echo ‘export JAVA_HOME=/Library/Java/Home’ >> ~/.bash_profile
+            echo ‘export PATH=$PATH:/opt/gradle/gradle-5.2.1/bin’ >> ~/.bash_profile
+            source ~/.bash_profile
+
+
         fi
         if [ $ARG == "osx" ] || [ $ARG == "all" ]; then
             # Run the osx.sh Script
@@ -94,6 +100,21 @@ function runDots() {
             echo "------------------------------"
             echo ""
             ./android.sh
+            echo ‘alias j9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"‘ >> ~/.aliases
+            echo ‘alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"‘ >> ~/.aliases
+            echo ‘alias j7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7`; java -version"‘ >> ~/.aliases
+            source ~/.aliases
+            echo ‘"# Java"’ >> ~/.bash_profile
+            echo ‘export PATH=”$HOME/.jenv/bin:$PATH”’ >> ~/.bash_profile
+            echo ‘eval “$(jenv init -)”’ >> ~/.bash_profile
+            source ~/.bash_profile
+            jenv add /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home
+            jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/
+            echo ‘JAVA_HOME=$(/usr/libexec/java_home -v $(jenv version-name))’ >> ~/.mavenrc
+            echo ‘alias j9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"‘ >> ~/.bash_profile
+            echo ‘alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"‘ >> ~/.bash_profile
+            source ~/.mavenrc
+            jenv versions
         fi
     done
 
